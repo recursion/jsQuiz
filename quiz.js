@@ -10,15 +10,10 @@
  * ****************************************************/
 /* Global Variables */
 var score = 0;
-var currentQuestion = 0;
-
-// Apparently innerHTML puts out HTML and textContent puts out pure text.
-// So my guess is that textContent is faster since it wont need to parse
-// for html - i.e. lets just use textContent unless we need html
-
+var currentQuestion = 0;  /* Index of the current question in qAndA Array */
 
 /* Setup some Quiz Questions and answers */
-// This is an array of objects which contain a Question, and array of possible answers
+// This is an array of objects which contain a Question, an array of possible answers
 // and an "Answer" which is the index of the possibleAnswers array 
 // that contains the correct answer
 var qAndA = [{
@@ -52,6 +47,7 @@ function revealScore(){
 
 }
 
+// Hide the form and show the result
 function showResult(resultText){
   // Grab any html node/elements we need
   var result = document.createElement('h3');
@@ -66,7 +62,7 @@ function showResult(resultText){
   document.getElementById('container').insertBefore(result, document.getElementById('quiz'));
 }
 
-// This function hides the result node and unhides the form node.
+// Hide the result node and unhide the form node.
 function transitionQuestions(){
   var resultNode = document.getElementById('result');
   document.getElementById('container').removeChild(resultNode);
